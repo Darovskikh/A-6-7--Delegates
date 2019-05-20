@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Advanced_Lesson_7_Delegates
 {
-    public class Practice
+    public static class Practice
     {
         /// <summary>
         /// L7.P1. Переписать консольный калькулятор с использованием делегатов. 
@@ -58,5 +59,13 @@ namespace Advanced_Lesson_7_Delegates
         {
 
         }
+
+        public delegate string StringFormater(string str);
+
+        public static void StringExtension (this List<string> strList,StringFormater methodFormater)
+        {
+
+        }
     }
+    
 }
