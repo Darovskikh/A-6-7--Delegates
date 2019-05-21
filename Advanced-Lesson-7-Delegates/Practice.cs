@@ -59,11 +59,15 @@ namespace Advanced_Lesson_7_Delegates
         {
             List< string > list = new List<string>();
             List<string> list1 = new List<string>();
-            list.Add("hello");
             list.Add("hello   for   test");
-            foreach (var str in list)
+            StringFormater formater;
+            formater = LetterUp;
+            list1 = list.StringExtension(formater);
+            formater = SpaceRemove;
+            list1 = list1.StringExtension(formater);
+            foreach (var str in list1)
             {
-              list.StringExtension(SpaceRemove);
+                Console.Write(str);
             }
             
         }
