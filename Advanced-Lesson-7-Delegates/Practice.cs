@@ -57,15 +57,44 @@ namespace Advanced_Lesson_7_Delegates
         /// </summary>
         public static void L7P2_StringFormater()
         {
-
+            List< string > list = new List<string>();
+            List<string> list1 = new List<string>();
+            list.Add("hello   for   test");
+            StringFormater formater;
+            formater = LetterUp;
+            list1 = list.StringExtension(formater);
+            formater = SpaceRemove;
+            list1 = list1.StringExtension(formater);
+            foreach (var str in list1)
+            {
+                Console.Write(str);
+            }
+            
         }
 
         public delegate string StringFormater(string str);
 
-        public static void StringExtension (this List<string> strList,StringFormater methodFormater)
+        public static List<string> StringExtension (this List<string> strList,StringFormater methodFormater)
         {
+            List< string> outList = new List<string>();
+            foreach (var str in strList)
+            {
+                outList.Add(methodFormater(str));
+            }
 
+            return outList;
         }
+
+        public static string LetterUp(string str)
+        {
+            return str.ToUpper();
+        }
+
+        public static string SpaceRemove(string str)
+        {
+            return str.Replace(' ', '_');
+        }
+
     }
     
 }
